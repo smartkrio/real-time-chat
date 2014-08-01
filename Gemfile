@@ -37,4 +37,7 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
+gem 'twitter-bootstrap-rails'
+gem 'haml-rails'
+gem 'websocket-rails'
+gem 'devise'
