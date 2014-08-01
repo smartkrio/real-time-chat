@@ -1,6 +1,6 @@
 class @ChatApp
 
-  messageTemplate: (message, channelName = 'broadcast', user = '') ->
+  messageTemplate: (message, channelName = '', user = '') ->
     """
     <div>
       <span>
@@ -41,13 +41,14 @@ class @ChatApp
 
   receiveGlobalMessage: (message) =>
     if message.text
-      $('#chat_history').append @messageTemplate(message.text)
+      $('#chat_history').append @messageTemplate(message.text, 'broadcast', message.user)
     else
       alert "Введите сообщение"
 
   receiveMessage: (message) =>
     if message.text
-      $('#chat_history').append @messageTemplate(message.text, @currentChannel.name, @username)
+      $('#chat_history').append @messageTemplate(message.text, @currentChannel.name, message.username)
+      console.log message
     else
       alert "Введите сообщение"
 
